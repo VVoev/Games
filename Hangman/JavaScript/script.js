@@ -1,5 +1,13 @@
 window.onload = function () {
 
+    function getClueForTheWord() {
+        var chosenCategoryIndex = categories.indexOf(chosenCategory);
+        var hintIDex = chosenCategory.indexOf(word);
+        var help = categoriesHint[chosenCategoryIndex][hintIDex];
+        return help;
+    }
+    var defaultNumberOfLifes = 10;
+
     var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
         't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -10,15 +18,11 @@ window.onload = function () {
                     ['C++','C#','JavaScript','Python','Perl']
                     ];
 
-    var hint = [
-               ['Named on a famous bulgarian','All Matches play with Red','From Stara Zagora','From Plovdiv','White Canarcheta'],
-               ['Fish Adventure','Best movie with Rusel Crowl','Anjelina Jolie And Nickalas Cage','No Hint','Best Chrismats movie'],
+    var categoriesHint = [
+               ['Named on a famous bulgarian','All Matches play with Red','From Stara Zagora','From Dobrich','From Plovdiv','White Canarcheta'],
+               ['Fish Adventure','Best movie with Rusel Crowl','Anjelina Jolie And Nickalas Cage','No categoriesHint','Best Chrismats movie'],
                ['Fastest language','Microsoft language','Chrome Language','Snake Language ;)','Sea Language']
     ];
-
-
-
-
 
     //create alphabet UL
     var myButtons = document.getElementById('buttons');
@@ -32,10 +36,6 @@ window.onload = function () {
         letters.appendChild(list);
     }
 
-    //Choose Category and word and clue
-    chosenCategory = categories[Math.floor(Math.random()*categories.length)];
-    word = chosenCategory[Math.floor(Math.random()*chosenCategory.length)];
-    var clue = hint[chosenCategory][word];
 
     //Select Category
     var selectedCat  = function () {
@@ -49,6 +49,33 @@ window.onload = function () {
             categoryName.innerHTML = 'The Chosen Category is Programing Languages';
         }
     }
+
+
+
+    //Choose Category and word and clue
+    chosenCategory = categories[Math.floor(Math.random()*categories.length)];
+    word = chosenCategory[Math.floor(Math.random()*chosenCategory.length)];
+    clue = getClueForTheWord();
+    
+    
+    //showClue
+    var hintButton = document.getElementById('hint');
+    hintButton.addEventListener('click',function () {
+        var clueElement = document.getElementById('clue');
+        clueElement.innerText +=clue;
+    })
+
+    //Play Again Button
+    var reset = document.getElementById('reset');
+    reset.addEventListener('click',function () {
+        location.reload();
+    })
+
+    //Set Starting Lifes
+    var lifes = document.getElementById('mylives');
+    lifes.innerText += defaultNumberOfLifes;
+    
+
     
     //make Lines for the word
     var guess = function () {
@@ -68,6 +95,8 @@ window.onload = function () {
     selectedCat();
     console.log(word)
     guess();
+    
+    
 
 
 
