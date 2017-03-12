@@ -6,6 +6,9 @@ window.onload = function () {
         var help = categoriesHint[chosenCategoryIndex][hintIDex];
         return help;
     }
+    function gameOver() {
+        alert('you are dead'.toUpperCase())
+    }
     var defaultNumberOfLifes = 10;
 
     var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
@@ -30,7 +33,7 @@ window.onload = function () {
     for(var i = 0,len = alphabet.length; i<len;i+=1){
         letters.id = 'alphabet';
         var list = document.createElement('li');
-        list.id = 'letter';
+        list.classList = 'letter';
         list.innerHTML = alphabet[i];
         myButtons.appendChild(letters);
         letters.appendChild(list);
@@ -72,8 +75,12 @@ window.onload = function () {
     })
 
     //Set Starting Lifes
-    var lifes = document.getElementById('mylives');
-    lifes.innerText += defaultNumberOfLifes;
+    var lifes = document.getElementById('showLives');
+    lifes.innerText = defaultNumberOfLifes;
+
+    
+
+
     
 
     
@@ -91,10 +98,43 @@ window.onload = function () {
         hold.appendChild(ul);
     }
 
+    //Engine
+    play = function () {
+        function checkIfWordContainLetter(letter) {
+            return word.toLowerCase().indexOf(letter);
+        }
+        var letters = document.querySelectorAll('.letter');
+        var len = letters.length;
+        var geuss = document.querySelectorAll('.guess');
+        for(var i =0; i<len; i+=1){
+            letters[i].addEventListener('click',function () {
+                var index = checkIfWordContainLetter(this.innerText);
+                if(index>=0){
+                    for(var i = 0 ; i<word.length;i+=1){
+                        if(word[i].toLowerCase() === this.innerText){
+                            geuss[i].innerText = this.innerText;
+                        }
+                    }
+                }
+                else{
+                    lifes.innerText -=1;
+                    this.style.opacity=0.4;
+                    if(lifes.innerText<1){
+                        gameOver();
+                    }
+                }
+            })
+        }
+    }
+    guess();
+    play();
+
     //Debugging purposes
     selectedCat();
     console.log(word)
-    guess();
+
+
+
     
     
 
