@@ -130,8 +130,9 @@ window.onload = function () {
 
         }
     }
-    
+
     guess();
+    selectedCat();
     play();
 
 }
