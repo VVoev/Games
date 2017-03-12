@@ -1,5 +1,5 @@
 window.onload = function () {
-
+    var guessedLetters = 0;
     function getClueForTheWord() {
         var chosenCategoryIndex = categories.indexOf(chosenCategory);
         var hintIDex = chosenCategory.indexOf(word);
@@ -8,6 +8,12 @@ window.onload = function () {
     }
     function gameOver() {
         alert('you are dead'.toUpperCase())
+    }
+
+    function isWinByPlayer() {
+        if(guessedLetters === word.length){
+            setTimeout(function(){ alert("You Win"); }, 100);
+        }
     }
     var defaultNumberOfLifes = 10;
 
@@ -39,7 +45,6 @@ window.onload = function () {
         letters.appendChild(list);
     }
 
-
     //Select Category
     var selectedCat  = function () {
         if(chosenCategory === categories[0]){
@@ -53,14 +58,12 @@ window.onload = function () {
         }
     }
 
-
-
     //Choose Category and word and clue
     chosenCategory = categories[Math.floor(Math.random()*categories.length)];
     word = chosenCategory[Math.floor(Math.random()*chosenCategory.length)];
     clue = getClueForTheWord();
-    
-    
+
+
     //showClue
     var hintButton = document.getElementById('hint');
     hintButton.addEventListener('click',function () {
@@ -78,12 +81,6 @@ window.onload = function () {
     var lifes = document.getElementById('showLives');
     lifes.innerText = defaultNumberOfLifes;
 
-    
-
-
-    
-
-    
     //make Lines for the word
     var guess = function () {
         var hold = document.getElementById('hold');
@@ -103,6 +100,7 @@ window.onload = function () {
         function checkIfWordContainLetter(letter) {
             return word.toLowerCase().indexOf(letter);
         }
+
         var letters = document.querySelectorAll('.letter');
         var len = letters.length;
         var geuss = document.querySelectorAll('.guess');
@@ -112,10 +110,14 @@ window.onload = function () {
                 if(index>=0){
                     for(var i = 0 ; i<word.length;i+=1){
                         if(word[i].toLowerCase() === this.innerText){
+                            guessedLetters +=1;
+                            this.style.opacity=0.4;
                             geuss[i].innerText = this.innerText;
+                            isWinByPlayer();
                         }
                     }
                 }
+
                 else{
                     lifes.innerText -=1;
                     this.style.opacity=0.4;
@@ -123,26 +125,14 @@ window.onload = function () {
                         gameOver();
                     }
                 }
+
             })
+
         }
     }
+    
     guess();
     play();
-
-    //Debugging purposes
-    selectedCat();
-    console.log(word)
-
-
-
-    
-    
-
-
-
-
-
-
 
 }
 
