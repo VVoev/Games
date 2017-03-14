@@ -1,0 +1,12 @@
+h1{
+    background-color: black;
+    color: white;
+    width: 275px;
+}
+canvas {
+    border: 1px solid black;
+}
+
+#game-container {
+    position: relative;
+}
