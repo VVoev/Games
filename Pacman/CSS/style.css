@@ -2,11 +2,21 @@ h1{
     background-color: black;
     color: white;
     width: 275px;
+    position: relative; /* or absolute */
+    top: 50%;
+    left: 40%;
+    color: aquamarine;
 }
 canvas {
     border: 1px solid black;
-}
+    background-color: white;
 
+}
+body{
+    background-image: url("../Images/welcome.jpg");
+
+}
 #game-container {
     position: relative;
+    padding-left: 400px;
 }

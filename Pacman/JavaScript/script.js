@@ -2,11 +2,18 @@ function createGame(selector) {
     let isMouthOpen = false;
     let canvas = document.querySelector(selector);
     let ctx = canvas.getContext('2d');
-    let speed = 5;
+    let isEaten = false;
+    const offset = 15;
     let packman = {
         x:30,
         y:30,
-        size:30
+        size:30,
+        speed:10
+    }
+    let food = {
+        x:300,
+        y:300,
+        size:7.5
     }
     let dir = 0;
     let keyCodeDirs = {
@@ -15,21 +22,22 @@ function createGame(selector) {
         39:0,
         40:1
     }
-    let dirDeltas =[{
-        x:+speed,
-        y:0
-    },
+    let dirDeltas =[
         {
-            x:0,
-            y:+speed
-        },
-        {
-            x:-speed,
+            x:+packman.speed,
             y:0
         },
         {
             x:0,
-            y:-speed
+            y:+packman.speed
+        },
+        {
+            x:-packman.speed,
+            y:0
+        },
+        {
+            x:0,
+            y:-packman.speed
         },
     ]
     /*
@@ -48,16 +56,31 @@ function createGame(selector) {
             return;
         }
         dir = keyCodeDirs[ev.keyCode];
-        console.log(dir)
     })
 
 
 
     
     function gameLoop() {
-        ctx.fillStyle = 'yellow';
-        ctx.clearRect(0,0,1000,800)
+        ctx.clearRect(0,0,1000,800);
+        drawPackMan();
+        isFoodEaten();
+        openAndCloseMouth();
+        updatePackManPosition(packman,canvas,dirDeltas,dir);
+        window.requestAnimationFrame(gameLoop)
+    }
+
+    function openAndCloseMouth() {
+        steps +=1;
+        if(steps>stepsToChangeMouth){
+            isMouthOpen = !isMouthOpen;
+            steps=1;
+        }
+    }
+
+    function drawPackMan() {
         ctx.beginPath();
+        ctx.fillStyle = 'yellow';
 
         if(isMouthOpen){
             let delta = dir*Math.PI/2;
@@ -68,14 +91,28 @@ function createGame(selector) {
             ctx.arc(packman.x,packman.y,packman.size,0,2*Math.PI);
         }
         ctx.fill();
-        steps +=1;
-        if(steps>stepsToChangeMouth){
-            isMouthOpen = !isMouthOpen;
-            steps=1;
+    }
+
+    function generateFood() {
+        ctx.fillStyle = 'red';
+        ctx.beginPath();
+        food.x = Math.random(0,canvas.width)*canvas.width;
+        food.y = Math.random(0,canvas.height)*canvas.height;
+        ctx.arc(food.x,food.y,food.size,0,2*Math.PI);
+        ctx.fill()
+    }
+
+    function isFoodEaten() {
+        if(packman.x === food.x && packman.y === food.y){
+            isEaten = true;
         }
-        packman.x +=dirDeltas[dir].x;
-        packman.y +=dirDeltas[dir].y;
-        window.requestAnimationFrame(gameLoop)
+        else if(!isEaten){
+            generateFood();
+            isEaten = true;
+        }
+
+
+
     }
 
 
