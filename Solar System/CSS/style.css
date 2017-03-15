@@ -1,0 +1,9 @@
+h1{
+    top: 50%;
+    left: 50%;
+}
+#canvas
+{
+    padding-left: 250px;
+    border: 1px solid black;
+}
