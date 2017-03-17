@@ -24,7 +24,7 @@ window.onload = function () {
     var categories =[
                     ['Levski','Cska','Beroe','Litex','Botev','Slavia'],
                     ['Finding Nemo','Gladiator','Gone in sixty Seconds','The Patriot','Home Alone'],
-                    ['C++','C#','JavaScript','Python','Perl']
+                    ['CPlusPlus','CSharp','JavaScript','Python','Perl']
                     ];
 
     var categoriesHint = [
