@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The BomberMan</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JavaScript/Jquery/jquery-1.11.3.js"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+</head>
+
+<body>
+    <h1>The BomberMan Game</h1>
+    <h2 id="timer">Time remaining:</h2>
+    <!--<div id="name-container">-->
+    <!--<p>Please enter your name</p>-->
+    <!--<input type="text" name="myName" id="myName"  size="40">-->
+    <!--<input type="button" value="Start Game" onclick="getName()">-->
+    <!--</div>-->
+    <!--<div class="timer">Time left <span id="time">05:00</span> minutes!</div>-->
+    <div id="game-container">
+        <canvas id="bomb-canvas"></canvas>
+        <canvas id="game-canvas"></canvas>
+    </div>
+    <div id="player">
+        <img src="../Images/bombermanTest.png" alt="" id="bombermanImg">
+    </div>
+
+    <img id="bomb-image" src="../Images/bomb.png" alt="bomb">
+    <img id="wall-image" src="../Images/wall.png" alt="wall">
+    <img id="brick-image" src="../Images/brick.png" alt="brick">
+    <img src="../Images/george-down.png" id="george-down">
+    <img src="../Images/george-up.png" id="george-up">
+    <img src="../Images/george-right.png" id="george-right">
+    <img src="../Images/george-left.png" id="george-left">
+    <img src="../Images/right.png" id="right">
+    <img src="../Images/left.png" id="left">
+    <img src="../Images/up.png" id="up">
+    <img src="../Images/down.png" id="down">
+    <img src="../Images/bomb-sprite.png" id="bomb-sprite">
+    <img src="../Images/enemy-sprite.png" id="enemy-sprite">
+    <img src="../Images/downFire.png" id="down-fire-sprite">
+    <img src="../Images/rightFire.png" id="right-fire-sprite">
+    <img src="../Images/leftFire.png" id="left-fire-sprite">
+    <img src="../Images/upFire.png" id="up-fire-sprite">
+    <img src="../Images/gate.png" id="exit-door">
+    <img src="../Images/game-over-image.png" id="game-over-image">
+
+    <script src="../JavaScript/Globals/globals.js"></script>
+    <script src="../JavaScript/Common/player-info.js"></script>
+    <script src="../JavaScript/Core/physical-body.js"></script>
+    <script src="../JavaScript/Core/sprite.js"></script>
+    <script src="../JavaScript/Core/game-field.js"></script>
+    <script src="../JavaScript/Core/collision-detector.js"></script>
+    <script src="../JavaScript/Core/bomb-fire.js"></script>
+    <script src="../JavaScript/Core/script.js"></script>
+    <script src="../JavaScript/Enemy/generateEnemies.js"></script>
+    <script src="../JavaScript/Common/drawExitGate.js"></script>
+    <script src="../JavaScript/Core/bomberman-sprite.js"></script>
+    <script src="../JavaScript/Core/timer.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            const game = createGame("#game-canvas");
+            game.start();
+        });
+
+    </script>
+</body>
+
+</html>

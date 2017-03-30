@@ -1,0 +1,92 @@
+h1,
+#name-container,
+#player-name {
+    color: black;
+    position: relative;
+    /* or absolute */
+    text-align: center;
+}
+
+h1,
+h2 {
+    font-family: Consolas;
+}
+
+h2 {
+    position: relative;
+    bottom: 60px;
+    right: 130px;
+}
+
+#name-container,
+#player-name {
+    font-size: 25px;
+    color: blue;
+    font-weight: bold;
+}
+
+img {
+    display: none;
+}
+
+input {
+    height: 25px;
+}
+
+canvas {
+    width: 100%;
+    position: absolute;
+}
+
+#bomb-canvas {
+    background-color: green;
+}
+
+body {
+    background: url(../images/bomb.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#game-container {
+    position: relative;
+    /*display: none;*/
+}
+
+h2 {
+    float: right;
+    margin-right: 100px;
+    color: black;
+}
+
+#test {
+    width: 10px;
+    height: 10px;
+}
+
+#bombermanImg {
+    display: none;
+}
+
+
+/*Timer*/
+
+
+/*.timer {
+	background: black;
+	color: white;
+	font-size: 25px;
+	text-align: center;
+	width: 300px;
+    margin: auto;
+}
+*/
+
+@media screen and (min-width: 1200px) {
+    #game-container {
+        width: 65%;
+        margin: auto;
+    }
+}

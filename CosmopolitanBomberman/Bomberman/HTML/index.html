@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <script src="../JavaScript/Jquery/jquery-3.2.0.min.js"></script>
+    <link rel="stylesheet" href="../CSS/style-index.css" />
+    <script src="../JavaScript/Globals/globals.js"></script>
+    <script src="../JavaScript/Intro/introSequence.js"></script>
+</head>
+
+<body onload="setTimeout(initial(),3000)">
+    <img id="team" class="initial" src="../Images/team.png" />
+    <img id="image" class="initial" src="../Images/h1.png" />
+    <div id="login-area">
+        <img class="initial" id="logo" src="../Images/logo.png" />
+        <input type="text" class="initial" id="name-field" placeholder="Enter Your Name Here!" />
+        <div id="tip-arrow" class="initial">
+            <h2> Use the Arrow Keys to Move </h2>
+            <img id="arrows" src="../Images/arrows.png" />
+        </div>
+        <div id="tip-spacebar" class="initial">
+            <h2> Use the Spacebar to Deploy Bombs </h2>
+            <img id="spacebar" src="../Images/spacebar.png" />
+        </div>
+        <img id="start-button" src="../Images/start-button.png" onclick="startGame()" />
+        <img class="initial" id="right-hero" src="../Images/right-hero.png" />
+        <img class="initial" id="left-hero" src="../Images/left-hero.png" />
+    </div>
+</body>
+

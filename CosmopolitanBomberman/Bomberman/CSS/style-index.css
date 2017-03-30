@@ -1,0 +1,122 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.initial {
+    display: none;
+}
+
+#team {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 630px;
+    height: 100px;
+    margin-top: -50px; /* Half the height */
+    margin-left: -315px; /* Half the width */
+}
+
+#image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#right-hero {
+    width: 298px;
+    height: 298px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+#left-hero {
+    width: 298px;
+    height: 298px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+#logo {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 390px;
+    height: 118px;
+    margin-top: -59px; /* Half the height */
+    margin-left: -195px; /* Half the width */
+}
+
+#name-field {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    width: 400px;
+    height: 40px;
+    margin-top: -20px; /* Half the height */
+    margin-left: -200px; /* Half the width */
+    font-size: 22px;
+    text-align: center;
+    color: #113f7f;
+    font-weight: bold;
+}
+
+#name-field:hover {
+    border: 2px solid #f8da4d;
+}
+
+#start-button {
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    width: 603px;
+    height: 135px;
+    margin-top: -67px; /* Half the height */
+    margin-left: -301px; /* Half the width */
+}
+
+#start-button:hover {
+    cursor: pointer;
+}
+
+#tip-arrow {
+    position: absolute;
+    margin: auto;
+    top: 45%;
+    left: 30%;
+    width: 600px;
+    height: 200px;
+    margin-top: -100px; /* Half the height */
+    margin-left: -200px; /* Half the width */
+}
+
+#tip-arrow h2 {
+    color: #113f7f;
+    font-family: sans-serif;
+}
+
+#tip-spacebar {
+    position: absolute;
+    margin: auto;
+    top: 45%;
+    left: 70%;
+    width: 600px;
+    height: 200px;
+    margin-top: -100px; /* Half the height */
+    margin-left: -200px; /* Half the width */
+}
+
+#tip-spacebar h2 {
+    color: #113f7f;
+    font-family: sans-serif;
+}
+
+#spacebar {
+    width: 400px;
+}

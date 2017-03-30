@@ -1,0 +1,40 @@
+  body {
+      background-color: palegoldenrod;
+      font-family: Consolas;
+      color: yellowgreen;
+  }
+  
+  img {
+      display: none;
+  }
+  
+  label {
+      color: hotpink;
+  }
+  
+  button {
+      background-color: hotpink;
+      color: white;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 20px;
+  }
+  
+  .select {
+      position: absolute;
+      left: 470px;
+      top: 110px;
+  }
+  
+  h1 {
+      text-align: center;
+      font-family: Consolas;
+      font-size: 55px;
+      position: relative;
+      bottom: 20px;
+  }
+  
+  canvas {
+      position: absolute;
+      width: 100%;
+  }
